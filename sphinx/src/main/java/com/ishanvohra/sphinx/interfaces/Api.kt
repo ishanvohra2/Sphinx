@@ -4,12 +4,23 @@ import com.ishanvohra.sphinx.models.completeText.CompleteTextRequest
 import com.ishanvohra.sphinx.models.completeText.CompleteTextResult
 import com.ishanvohra.sphinx.models.editText.EditTextRequest
 import com.ishanvohra.sphinx.models.editText.EditTextResult
+import com.ishanvohra.sphinx.models.getModels.GetModelsResult
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface Api {
+
+    /**
+     * Get the list of models
+     * @see GetModelsResult
+     */
+    @GET("models")
+    suspend fun getModels(
+        @Header("Authorization") token: String
+    ): Response<GetModelsResult>
 
     /**
      * Complete text API call

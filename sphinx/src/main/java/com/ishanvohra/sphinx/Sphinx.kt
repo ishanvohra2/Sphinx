@@ -1,8 +1,10 @@
 package com.ishanvohra.sphinx
 
 import com.ishanvohra.sphinx.apis.EditText
+import com.ishanvohra.sphinx.apis.GetModels
 import com.ishanvohra.sphinx.apis.TextComplete
 import com.ishanvohra.sphinx.interfaces.EditTextListener
+import com.ishanvohra.sphinx.interfaces.GetModelsListener
 import com.ishanvohra.sphinx.interfaces.TextCompleteListener
 import com.ishanvohra.sphinx.models.completeText.CompleteTextRequest
 import com.ishanvohra.sphinx.models.editText.EditTextRequest
@@ -40,5 +42,12 @@ class Sphinx(
     ) = EditText.getInstance(listener, apiKey).editText(
         request
     )
+
+    /**
+     * Gets the list of all available models
+     */
+    fun getModels(
+        listener: GetModelsListener
+    ) = GetModels.getInstance(listener, apiKey).getModels()
 
 }
